@@ -15,4 +15,8 @@
   (testing "1 book in the basket"
     (let [basket [5]]
     (is (= 8 (price basket)))))
+
+  (testing "two different books offer a discount"
+    (let [basket [4 5]]
+    (is (= (* 0.95 16) (price basket)))))
   )
