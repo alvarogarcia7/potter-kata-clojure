@@ -28,10 +28,18 @@
   (testing "two same books doesn't offer a discount"
     (let [basket [4 4]]
     (is (= 16. (price basket)))))
+
+  (testing "three different books should offer 15% discount on them"
+    (let [basket [1 2 3]]
+    (is (= (* 0.85 24) (price basket)))))
   )
 
 ; counts how many different books there are
 (count (keys (group-by identity '(1 3 3))))
 
+(let [basket [4 4]] (price basket))
 
+(price [1 2 3])
+(* 0.85 24)
 
+(price [4 2])
