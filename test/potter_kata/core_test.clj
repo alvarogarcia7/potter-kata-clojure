@@ -2,12 +2,17 @@
   (:require [clojure.test :refer :all]
             [potter-kata.core :refer :all]))
 
+(defn calculate-discount [different-books total-price]
+  (if (= 4 different-books)
+    (* total-price 0.2)
+    (* total-price 0.05 (dec different-books))))
+
 (defn price [x]
    (let [book-num (count x)
          book-price 8
          different-books (count (keys (group-by identity x)))
          total-price (* book-price book-num)
-         discount (* total-price 0.05 (dec different-books))]
+         discount (calculate-discount different-books total-price)]
      (if (> discount total-price)
        total-price
        (- total-price discount))))
