@@ -9,4 +9,9 @@
   (testing "empty basket"
     (let [basket []]
     (is (= 0 (price basket))))
-  ))
+  )
+  (testing "1 book in the basket"
+    (let [basket [5]]
+    (is (= 8 (price basket))))
+  )
+  )
