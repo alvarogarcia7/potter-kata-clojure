@@ -7,7 +7,8 @@
          book-price 8]
    (if (= 1 book-num)
      book-price
-     (if (= 2 book-num) (* 0.95 (* 2 book-price))
+     (if (= 2 book-num)
+       (* 0.95 (* 2 book-price))
        0))))
 
 (deftest basket-tests
