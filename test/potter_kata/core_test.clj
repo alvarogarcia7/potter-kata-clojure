@@ -8,5 +8,5 @@
 (deftest basket-tests
   (testing "empty basket"
     (let [basket []]
-    (is (= 1 (price basket))))
+    (is (= 0 (price basket))))
   ))
