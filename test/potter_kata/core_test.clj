@@ -23,6 +23,10 @@
   (testing "two different books offer a discount"
     (let [basket [4 5]]
     (is (= (* 0.95 16) (price basket)))))
+
+  (testing "two same books doesn't offer a discount"
+    (let [basket [4 4]]
+    (is (= 16 (price basket)))))
   )
 
 
