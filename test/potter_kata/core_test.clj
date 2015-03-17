@@ -5,7 +5,9 @@
 (defn calculate-discount [different-books total-price]
   (if (= 4 different-books)
     (* total-price 0.2)
-    (* total-price 0.05 (dec different-books))))
+    (if (= 5 different-books)
+      (* total-price 0.25)
+      (* total-price 0.05 (dec different-books)))))
 
 (defn price [x]
    (let [book-num (count x)
