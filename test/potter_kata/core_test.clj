@@ -3,7 +3,9 @@
             [potter-kata.core :refer :all]))
 
 (defn price [x]
-  0)
+  (*
+   (count x)
+   8))
 
 (deftest basket-tests
   (testing "empty basket"
