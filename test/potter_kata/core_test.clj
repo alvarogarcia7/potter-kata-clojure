@@ -42,6 +42,10 @@
   (testing "four different books should offer 20% discount on them"
     (let [basket [1 2 3 4]]
     (is (= (* 0.80 32) (price basket)))))
+
+  (testing "five different books should offer 25% discount on them"
+    (let [basket [1 2 3 4 5]]
+    (is (= (* 0.75 40) (price basket)))))
 )
 ; counts how many different books there are
 (count (keys (group-by identity '(1 3 3))))
