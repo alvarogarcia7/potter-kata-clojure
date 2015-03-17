@@ -4,12 +4,14 @@
 
 (defn price [x]
    (let [book-num (count x)
-         book-price 8]
+         book-price 8
+         different-books (count (keys (group-by identity x)))
+         total-price (* book-price book-num)]
    (if (= 1 book-num)
-     book-price
-     (if (= 2 book-num)
-       (* 0.95 (* book-num book-price))
-       0))))
+     total-price
+     (if (= 2 different-books)
+       (* 0.95 total-price)
+       total-price))))
 
 (deftest basket-tests
   (testing "empty basket"
@@ -28,6 +30,9 @@
     (let [basket [4 4]]
     (is (= 16 (price basket)))))
   )
+
+; counts how many different books there are
+(count (keys (group-by identity '(1 3 3))))
 
 
 
